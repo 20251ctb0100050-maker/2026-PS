@@ -1,0 +1,35 @@
+[
+    {
+        "nome": "luiz carlos",
+        "especie": "preto",
+        "idade": 16,
+        "peso": 67.0,
+        "nome_dono": "joao VILA",
+        "vacinado": true,
+        "data_nascimento": "12/43",
+        "raca": "gay",
+        "hospedado": false
+    },
+    {
+        "nome": "JOAO AVILA",
+        "especie": "MANO",
+        "idade": 23,
+        "peso": 98.0,
+        "nome_dono": "67",
+        "vacinado": false,
+        "data_nascimento": "54/234",
+        "raca": "MANO",
+        "hospedado": false
+    },
+    {
+        "nome": "JAPA",
+        "especie": "MANO",
+        "idade": 56,
+        "peso": 76.0,
+        "nome_dono": "JOAO AVILA",
+        "vacinado": true,
+        "data_nascimento": "43/56",
+        "raca": "AMIGO",
+        "hospedado": false
+    }
+]
