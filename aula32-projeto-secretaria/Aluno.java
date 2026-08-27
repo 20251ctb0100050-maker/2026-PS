@@ -69,4 +69,13 @@ public class Aluno {
         this.curso = curso;
     }
 
+    // toString: como a ficha se apresenta quando alguém manda imprimi-la.
+    // Sem ele, System.out.println(aluno) mostra Algo@7ad041f3.
+    // O @Override avisa o compilador: estou trocando um método que toda
+    // classe já tem por uma versão minha.
+    @Override
+    public String toString() {
+        return matricula + " | " + nome + " | " + curso + " | " + cidade;
+    }
+
 }
