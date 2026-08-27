@@ -22,6 +22,7 @@ public class Aluno {
     private String nome;
     private String matricula;
     private String curso;
+    private String cidade;  // <-- o campo extra DESTE exemplo; o seu e outro
 
     // CONSTRUTOR: roda no momento do "new" e preenche a ficha.
     // E o _init_ de vocês, em Java. Tem o mesmo nome da classe e nao
@@ -33,6 +34,7 @@ public class Aluno {
         this.nome = nome;
         this.matricula = matricula;
         this.curso = curso;
+        this.cidade = cidade;
     }
 
     // GETTERS: as janelas de leitura da ficha.
@@ -48,6 +50,10 @@ public class Aluno {
 
     public String getCurso() {
         return curso;
+    }
+
+    public String getCidade() {
+        return cidade;
     }
 
     // SETTERS: a unica porta de entrada para mudar um dado da ficha.
