@@ -82,7 +82,7 @@ public class Main {
 
         if (existente != null) {
             System.out.println("Ja existe ficha com a matricula " + matricula + "!");
-            return;    // sai do metodo agora; nao cadastra
+            return;
         }
 
         System.out.print("Curso: ");
@@ -94,13 +94,8 @@ public class Main {
         System.out.println("Ficha de " + nome + " guardada!");
     }
 
-    // Percorre o gaveteiro e imprime ficha por ficha (padrão da Aula 20).
+    // Percorre o gaveteiro e imprime ficha por ficha.
     static void listar(ArrayList<Aluno> lista) {
-
-        // LACUNA AUTÔNOMA: se lista.size() == 0, avise "Nenhuma ficha..."
-        // se não, imprima ---- FICHAS NO GAVETEIRO ---- com lista.size()
-        // e percorra com for
-        // imprimindo matrícula + " | " + nome + " | " + curso pelos getters
 
         if (lista.size() == 0) {
             System.out.println("Nenhuma ficha...");
@@ -117,28 +112,24 @@ public class Main {
                     a.getNome() + " | " +
                     a.getCurso()
                 );
-                System.out.println(a);  // TESTE: mandei imprimir a ficha inteira, sem receita
 
+                System.out.println(a);
             }
         }
     }
 
     // O CORACAO DO SISTEMA: devolve a ficha achada, ou null se nao existir.
-    // Escrito uma vez, usado quatro vezes ate o fim do projeto.
     static Aluno buscarPorMatricula(ArrayList<Aluno> lista, String matricula) {
 
         for (int i = 0; i < lista.size(); i++) {
             Aluno a = lista.get(i);
-
-            // LACUNA: se a matricula DESTA ficha e a procurada forem iguais
-            // (compare com .equals, nunca com ==), devolva ESTA ficha: return a;
 
             if (a.getMatricula().equals(matricula)) {
                 return a;
             }
         }
 
-        return null; // percorreu tudo e nao achou
+        return null;
     }
 
     // O balcao pergunta a matricula e usa a busca para responder.
@@ -149,7 +140,6 @@ public class Main {
 
         Aluno a = buscarPorMatricula(lista, matricula);
 
-        // GUARDA: confere o null ANTES de usar o resultado.
         if (a == null) {
             System.out.println(
                 "Nenhuma ficha com a matricula " + matricula + "."
@@ -162,7 +152,7 @@ public class Main {
         }
     }
 
-    // Atualizar reusa a busca: escrever uma vez, chamar quantas vezes precisar.
+    // Atualizar reusa a busca.
     static void atualizar(ArrayList<Aluno> lista, Scanner teclado) {
         System.out.print("Matricula da ficha a atualizar: ");
         String matricula = teclado.nextLine().trim();
@@ -179,8 +169,6 @@ public class Main {
         System.out.print("Novo curso de " + a.getNome() + ": ");
         String novoCurso = teclado.nextLine().trim();
 
-        // a variavel a segura a MESMA ficha que esta na lista: mudar por
-        // aqui muda o que a listagem mostra depois. Nao precisa reinserir.
         a.setCurso(novoCurso);
 
         System.out.println(
@@ -188,7 +176,7 @@ public class Main {
         );
     }
 
-    // Acao destrutiva pede confirmacao. Padrao de sistema de verdade.
+    // Acao destrutiva pede confirmacao.
     static void remover(ArrayList<Aluno> lista, Scanner teclado) {
         System.out.print("Matricula da ficha a remover: ");
         String matricula = teclado.nextLine().trim();
@@ -209,30 +197,34 @@ public class Main {
         String resposta = teclado.nextLine().trim();
 
         if (resposta.equals("s")) {
-            lista.remove(a); // remove ESTA ficha (a mesma referencia achada)
+            lista.remove(a);
             System.out.println("Ficha removida.");
 
         } else {
             System.out.println("Remocao cancelada.");
         }
-        // RELATORIO: o padrao preparar -> percorrer -> usar, da Aula 29.
-        static void relatorio(ArrayList<Aluno> lista, Scanner teclado) {
-            System.out.println("--- RELATORIO DA SECRETARIA ---");
-            System.out.println("Total de fichas: " + lista.size());
-            System.out.print("Contar alunos de qual curso? ");
-            String curso = teclado.nextLine().trim();
+    }
 
-            int contador = 0;                         // preparar (ANTES do for)
+    // RELATORIO: o padrao preparar -> percorrer -> usar, da Aula 29.
+    static void relatorio(ArrayList<Aluno> lista, Scanner teclado) {
+        System.out.println("--- RELATORIO DA SECRETARIA ---");
+        System.out.println("Total de fichas: " + lista.size());
+        System.out.print("Contar alunos de qual curso? ");
 
-            for (int i = 0; i < lista.size(); i++) { // percorrer
-                Aluno a = lista.get(i);
+        String curso = teclado.nextLine().trim();
 
-                if (a.getCurso().equals(curso)) {
-                    contador = contador + 1;
-                }
+        int contador = 0;                         // preparar
+
+        for (int i = 0; i < lista.size(); i++) { // percorrer
+            Aluno a = lista.get(i);
+
+            if (a.getCurso().equals(curso)) {
+                contador = contador + 1;
             }
-
-            System.out.println("Alunos de " + curso + ": " + contador); // usar
         }
+
+        System.out.println(
+            "Alunos de " + curso + ": " + contador
+        );                                        // usar
     }
 }
