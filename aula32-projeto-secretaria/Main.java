@@ -25,9 +25,9 @@ public class Main {
 
         // while (true) = repete para sempre. A única saída é o break da opção 0.
         while (true) {
-            System.out.println("=====================================");
-            System.out.println("       SECRETARIA DO SEU NOME");
-            System.out.println("=====================================");
+            System.out.println("=============================================");
+            System.out.println("       SECRETARIA DO CAMPOS - GUSTAVO KOLLER");
+            System.out.println("=============================================");
             System.out.println("[1] Cadastrar aluno");
             System.out.println("[2] Listar alunos");
             System.out.println("[3] Buscar por matricula");
